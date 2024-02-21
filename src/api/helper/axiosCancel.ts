@@ -1,5 +1,5 @@
 import axios, { type AxiosRequestConfig, type Canceler } from 'axios'
-import { isFunction } from '@/utils/is/index'
+import { isFunction } from '@/utils/is'
 import qs from 'qs'
 
 let pendingMap = new Map<string, Canceler>()

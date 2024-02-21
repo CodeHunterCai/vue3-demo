@@ -1,5 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import languageList from './config'
+import { getBrowserLang } from '@/utils/util'
 
 const i18nTranslateData: { [prop: string]: any } = {}
 languageList.forEach((language) => {
@@ -17,7 +18,7 @@ languageList.forEach((language) => {
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: languageList[0].value,
+  locale: getBrowserLang() === 'zh' ? languageList[0].value : languageList[1].value,
   messages: i18nTranslateData
 })
 
