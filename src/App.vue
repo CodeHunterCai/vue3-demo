@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import httpRequest from '@/api'
+httpRequest.post('/test', {
+  name: '1',
+  age: 18
+})
 </script>
 
 <template>
