@@ -4,9 +4,9 @@ import axios, {
   type AxiosResponse,
   type AxiosError
 } from 'axios'
-import { AxiosCanceler } from './helper/axiosCancel'
+import { AxiosCanceler } from './helper/AxiosCancel'
 import { ElMessage } from 'element-plus'
-import { ContentTypeEnum } from './enum/httpEnum'
+import { ContentTypeEnum } from './enum/HttpEnum'
 import axiosConfig from './config'
 import { GlobalStore } from '@/stores'
 

@@ -1,5 +1,7 @@
 export default {
   menu: {
-    测试: '测试'
+    home: 'Home',
+    权限管理: '权限管理',
+    权限列表: '权限列表'
   }
 }

@@ -1,3 +1,9 @@
+<template>
+  <el-config-provider :locale="i18nLocal" size="default">
+    <router-view />
+  </el-config-provider>
+</template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterView } from 'vue-router'
@@ -13,11 +19,5 @@ const i18nLocal = computed(() => {
   return getBrowserLang() === 'zh' ? zhCn : en
 })
 </script>
-
-<template>
-  <el-config-provider :locale="i18nLocal" size="default">
-    <router-view />
-  </el-config-provider>
-</template>
 
 <style scoped lang="scss"></style>
