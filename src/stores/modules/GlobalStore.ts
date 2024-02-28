@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 
-const userInfo = {}
+const userInfo: any = {
+  username: ''
+}
 
 export const GlobalStore = defineStore({
   id: 'GlobalStore',

@@ -2,7 +2,7 @@
   <div class="layout-container">
     <Sidebar class="sidebar-container" />
     <div class="main-container">
-      <div class="navbar-container"></div>
+      <Navbar />
       <div class="main-content-container"></div>
     </div>
   </div>
@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import Sidebar from './components/Sidebar/index.vue'
+import Navbar from './components/Navbar/index.vue'
 </script>
 
 <style scoped lang="scss">
@@ -23,10 +24,6 @@ import Sidebar from './components/Sidebar/index.vue'
 
   .sidebar-container {
     flex: none;
-    width: $sidebar-width;
-    height: 100%;
-    overflow: hidden;
-    background-color: var(--menu-background);
   }
 
   .main-container {
@@ -35,12 +32,6 @@ import Sidebar from './components/Sidebar/index.vue'
     flex: auto;
     height: 100%;
     overflow: hidden;
-
-    .navbar-container {
-      width: 100%;
-      height: $navbar-height;
-      overflow: hidden;
-    }
 
     .main-content-container {
       flex: auto;

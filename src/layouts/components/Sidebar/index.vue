@@ -14,5 +14,9 @@ import SidebarMenu from './components/SidebarMenu.vue'
 .sidebar-container {
   display: flex;
   flex-direction: column;
+  width: $sidebar-width;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--menu-background);
 }
 </style>

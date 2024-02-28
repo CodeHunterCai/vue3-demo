@@ -11,7 +11,15 @@ import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import '@/styles/index.scss'
 
+import 'virtual:uno.css'
+
+// 本地SVG图标
+import 'virtual:svg-icons-register'
+import SvgIcon from '@/components/SvgIcon/index.vue'
+
 const app = createApp(App)
+
+app.component('SvgIcon', SvgIcon)
 
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)

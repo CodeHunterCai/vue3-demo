@@ -11,11 +11,12 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import en from 'element-plus/es/locale/lang/en'
 import { getBrowserLang } from '@/utils/util'
 import { GlobalStore } from '@/stores'
+import { languageList } from '@/i18n'
 const globalStore = GlobalStore()
 
 const i18nLocal = computed(() => {
-  if (globalStore.language && globalStore.language === 'zh') return zhCn
-  if (globalStore.language && globalStore.language === 'en') return en
+  if (globalStore.language && globalStore.language === languageList[0].value) return zhCn
+  if (globalStore.language && globalStore.language === languageList[1].value) return en
   return getBrowserLang() === 'zh' ? zhCn : en
 })
 </script>
