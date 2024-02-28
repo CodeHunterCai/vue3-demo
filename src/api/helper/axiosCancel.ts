@@ -4,10 +4,11 @@ import qs from 'qs'
 
 let pendingMap = new Map<string, Canceler>()
 
-export const getPendingUrl = (config: AxiosRequestConfig) =>
-  [config.method, config.url, qs.stringify(config.data), qs.stringify(config.params)].join('&')
+function getPendingUrl(config: AxiosRequestConfig) {
+  return [config.method, config.url, qs.stringify(config.data), qs.stringify(config.params)].join('&')
+}
 
-export class AxiosCanceler {
+class AxiosCanceler {
   addPending(config: AxiosRequestConfig) {
     this.removePending(config)
     const url = getPendingUrl(config)
@@ -38,3 +39,7 @@ export class AxiosCanceler {
     pendingMap = new Map<string, Canceler>()
   }
 }
+
+export { getPendingUrl }
+
+export default AxiosCanceler

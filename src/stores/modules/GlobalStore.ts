@@ -1,36 +1,39 @@
 import { defineStore } from 'pinia'
+import { useStorage } from '@vueuse/core'
 
-const userInfo: any = {
+const defaultUserInfo: any = {
   username: ''
 }
 
-export const GlobalStore = defineStore({
-  id: 'GlobalStore',
-  state: () => ({
-    language: '',
-    token: '',
-    userInfo: { ...userInfo }
-  }),
-  getters: {},
-  actions: {
-    setLanguage(language: string) {
-      this.language = language
-    },
-    setToken(token: string) {
-      this.token = token
-    },
-    setUserInfo(userInfo: object) {
-      this.userInfo = {
-        ...this.userInfo,
-        ...userInfo
-      }
-    },
-    deleteUser() {
-      this.token = ''
-      this.userInfo = { ...userInfo }
+export const GlobalStore = defineStore('GlobalStore', () => {
+  const language = useStorage('language', '')
+  const token = useStorage('token', '')
+  const userInfo = useStorage('userInfo', { ...defaultUserInfo })
+
+  function setLanguage(newLanguage: string) {
+    language.value = newLanguage
+  }
+  function setToken(newToken: string) {
+    token.value = newToken
+  }
+  function setUserInfo(newUserInfo: object) {
+    userInfo.value = {
+      ...userInfo.value,
+      ...newUserInfo
     }
-  },
-  persist: {
-    key: 'system-info'
+  }
+  function deleteUser() {
+    token.value = ''
+    userInfo.value = { ...userInfo }
+  }
+
+  return {
+    language,
+    token,
+    userInfo,
+    setLanguage,
+    setToken,
+    setUserInfo,
+    deleteUser
   }
 })

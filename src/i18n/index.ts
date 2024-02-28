@@ -1,6 +1,9 @@
 import { createI18n } from 'vue-i18n'
 import languageList from './config'
-import { getBrowserLang } from '@/utils/util'
+import pinia from '@/stores'
+import { GlobalStore } from '@/stores'
+
+const globalStore = GlobalStore(pinia)
 
 const i18nTranslateData: { [prop: string]: any } = {}
 languageList.forEach((language) => {
@@ -18,9 +21,10 @@ languageList.forEach((language) => {
 const i18n = createI18n({
   legacy: false,
   globalInjection: true,
-  locale: getBrowserLang() === 'zh' ? languageList[0].value : languageList[1].value,
+  locale: globalStore.language || languageList[0].value,
   messages: i18nTranslateData
 })
 
-export default i18n
 export { languageList }
+
+export default i18n

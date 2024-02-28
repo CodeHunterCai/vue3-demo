@@ -4,7 +4,7 @@ import axios, {
   type AxiosResponse,
   type AxiosError
 } from 'axios'
-import { AxiosCanceler } from './helper/AxiosCancel'
+import AxiosCanceler from './helper/AxiosCancel'
 import { ElMessage } from 'element-plus'
 import { ContentTypeEnum } from './enum/HttpEnum'
 import axiosConfig from './config'
@@ -83,6 +83,6 @@ class HttpRequest {
   }
 }
 
-export default new HttpRequest(axiosConfig)
-
 export { ContentTypeEnum }
+
+export default new HttpRequest(axiosConfig)
