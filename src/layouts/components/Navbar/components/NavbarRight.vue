@@ -41,7 +41,7 @@ function logout() {
   align-items: center;
 
   .language-container {
-    margin-right: 10px;
+    margin-right: 15px;
   }
 }
 </style>
