@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-container">
     <SidebarLogo />
-    <SidebarMenu />
+    <SidebarMenu class="sidebar-menu" />
   </div>
 </template>
 
@@ -18,5 +18,10 @@ import SidebarMenu from './components/SidebarMenu.vue'
   height: 100%;
   overflow: hidden;
   background-color: var(--menu-background);
+
+  .sidebar-menu {
+    flex: auto;
+    overflow: auto;
+  }
 }
 </style>

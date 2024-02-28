@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown trigger="click" @command="handleLanguageChange">
+  <el-dropdown class="cursor-pointer" trigger="click" @command="handleLanguageChange">
     <div>
       <svg-icon icon-class="language" />
     </div>

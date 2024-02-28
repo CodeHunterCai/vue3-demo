@@ -1,9 +1,9 @@
 <template>
   <div class="layout-container">
-    <Sidebar class="sidebar-container" />
+    <Sidebar class="sidebar" />
     <div class="main-container">
-      <Navbar />
-      <div class="main-content-container"></div>
+      <Navbar class="navbar" />
+      <AppMain class="app-main" />
     </div>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar/index.vue'
+import AppMain from './components/AppMain/index.vue'
 </script>
 
 <style scoped lang="scss">
@@ -22,7 +23,7 @@ import Navbar from './components/Navbar/index.vue'
   height: 100%;
   overflow: hidden;
 
-  .sidebar-container {
+  .sidebar {
     flex: none;
   }
 
@@ -33,9 +34,14 @@ import Navbar from './components/Navbar/index.vue'
     height: 100%;
     overflow: hidden;
 
-    .main-content-container {
+    .navbar {
+      flex: none;
+    }
+
+    .app-main {
       flex: auto;
-      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
       overflow: auto;
     }
   }
