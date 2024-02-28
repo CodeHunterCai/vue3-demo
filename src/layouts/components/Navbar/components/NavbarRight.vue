@@ -1,6 +1,10 @@
 <template>
   <div class="navbar-content-container">
-    <LanguageSelect class="language-container" />
+    <div class="fullscreen" @click="toggleFullscreen">
+      <svg-icon :icon-class="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" />
+    </div>
+
+    <LanguageSelect class="language-select" />
 
     <el-dropdown trigger="click">
       <div class="flex-center ml-1">
@@ -27,10 +31,19 @@
 </template>
 
 <script setup lang="ts">
+import { useFullscreen } from '@vueuse/core'
 import LanguageSelect from './LanguageSelect.vue'
+import { GlobalStore } from '@/stores'
+
+const globalStore = GlobalStore()
+const { isFullscreen, toggle } = useFullscreen()
+
+function toggleFullscreen() {
+  toggle()
+}
 
 function logout() {
-  console.log(111)
+  globalStore.deleteUser()
 }
 </script>
 
@@ -40,7 +53,11 @@ function logout() {
   flex-direction: row;
   align-items: center;
 
-  .language-container {
+  .fullscreen {
+    margin-right: 15px;
+  }
+
+  .language-select {
     margin-right: 15px;
   }
 }

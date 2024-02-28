@@ -24,7 +24,7 @@ export const GlobalStore = defineStore('GlobalStore', () => {
   }
   function deleteUser() {
     token.value = ''
-    userInfo.value = { ...userInfo }
+    userInfo.value = { ...defaultUserInfo }
   }
 
   return {
