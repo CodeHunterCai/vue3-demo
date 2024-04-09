@@ -7,12 +7,15 @@ const globalStore = GlobalStore(pinia)
 
 const i18nTranslateData: { [prop: string]: any } = {}
 languageList.forEach((language) => {
-  const translateData = {}
+  let translateData = {}
   const fileList: { [prop: string]: any } = language.fileList
   Object.keys(fileList).forEach((fileName) => {
     const fileModule = fileList?.[fileName]?.default
     if (fileModule) {
-      Object.assign(translateData, fileModule)
+      translateData = {
+        ...translateData,
+        ...fileModule
+      }
     }
   })
   i18nTranslateData[language.value] = translateData

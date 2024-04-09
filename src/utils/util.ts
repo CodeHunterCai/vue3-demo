@@ -1,3 +1,25 @@
+import { notUndDefOrNull, isArray, isObject } from './is'
+import { languageList } from '@/i18n'
+
+/**
+ * @description:  数据不为空
+ */
+export function hasVal(val: any) {
+  if (!notUndDefOrNull(val)) {
+    return false
+  }
+  if (val === '') {
+    return false
+  }
+  if (isArray(val) && val.length === 0) {
+    return false
+  }
+  if (isObject(val) && Object.keys(val).length === 0) {
+    return false
+  }
+  return true
+}
+
 /**
  * @description 获取localStorage
  * @param {String} key Storage名称
@@ -19,7 +41,14 @@ export function localGet(key: string) {
  * @return void
  */
 export function localSet(key: string, value: any) {
-  window.localStorage.setItem(key, JSON.stringify(value))
+  if (!notUndDefOrNull(value)) {
+    return
+  }
+  if (isArray(value) || isObject(value)) {
+    window.localStorage.setItem(key, JSON.stringify(value))
+    return
+  }
+  window.localStorage.setItem(key, value)
 }
 
 /**
@@ -51,9 +80,9 @@ export function getBrowserLang() {
     browserLang.toLowerCase() === 'zh' ||
     browserLang.toLowerCase() === 'zh-cn'
   ) {
-    defaultBrowserLang = 'zh'
+    defaultBrowserLang = languageList[0].value
   } else {
-    defaultBrowserLang = 'en'
+    defaultBrowserLang = languageList[1].value
   }
   return defaultBrowserLang
 }

@@ -75,14 +75,16 @@ class HttpRequest {
       }
     )
   }
-  get(url: string, params: object, requestConfig = {}) {
+  get(url: string, params = {}, requestConfig = {}) {
     return this.service.get(url, { params, ...requestConfig })
   }
-  post(url: string, params: object, requestConfig = {}) {
+  post(url: string, params = {}, requestConfig = {}) {
     return this.service.post(url, params, requestConfig)
   }
 }
 
-export { ContentTypeEnum }
+export { ContentTypeEnum, axiosCanceler }
+
+export * from './modules/auth'
 
 export default new HttpRequest(axiosConfig)

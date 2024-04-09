@@ -17,7 +17,7 @@ const globalStore = GlobalStore()
 const i18nLocal = computed(() => {
   if (globalStore.language && globalStore.language === languageList[0].value) return zhCn
   if (globalStore.language && globalStore.language === languageList[1].value) return en
-  return getBrowserLang() === 'zh' ? zhCn : en
+  return getBrowserLang() === languageList[0].value ? zhCn : en
 })
 </script>
 

@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode development",
-    "dev:local": "vite --mode local",
     "build:dev": "vite build --mode development",
     "build:pro": "vite build --mode production",
     "type-check": "npx vue-tsc --build --force",

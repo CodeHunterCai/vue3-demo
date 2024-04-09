@@ -44,6 +44,7 @@ function toggleFullscreen() {
 
 function logout() {
   globalStore.deleteUser()
+  // TODO 删除用户跳转登录
 }
 </script>
 

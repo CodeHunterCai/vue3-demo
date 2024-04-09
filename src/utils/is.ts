@@ -8,17 +8,10 @@ export function is(val: any, type: string) {
 }
 
 /**
- * @description: 是否已定义
- */
-export function isDef(val: any) {
-  return typeof val !== 'undefined'
-}
-
-/**
  * @description: 是否未定义
  */
 export function isUnDef(val: any) {
-  return !isDef(val)
+  return val === undefined
 }
 
 /**
@@ -66,7 +59,7 @@ export function isAsyncFunction(val: any) {
 /**
  * @description:  是否为null
  */
-export function isNull(val: unknown): val is null {
+export function isNull(val: any) {
   return val === null
 }
 
@@ -74,7 +67,10 @@ export function isNull(val: unknown): val is null {
  * @description: 是否为对象
  */
 export function isObject(val: any) {
-  return val !== null && is(val, 'Object')
+  if (isNull(val)) {
+    return false
+  }
+  return is(val, 'Object')
 }
 
 /**
@@ -96,25 +92,6 @@ export function isPromise(val: any) {
  */
 export function notUndDefOrNull(val: any) {
   if (isUnDef(val) || isNull(val)) {
-    return false
-  }
-  return true
-}
-
-/**
- * @description:  数据不为空
- */
-export function hasVal(val: any, checkComplexData: boolean = false) {
-  if (!notUndDefOrNull(val)) {
-    return false
-  }
-  if (!checkComplexData) {
-    return true
-  }
-  if (isArray(val) && val.length === 0) {
-    return false
-  }
-  if (isObject(val) && Object.keys(val).length === 0) {
     return false
   }
   return true

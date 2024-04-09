@@ -27,6 +27,14 @@ const publicRoutes = [
         }
       }
     ]
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/error-page/404.vue'),
+    meta: {
+      hidden: true
+    }
   }
 ]
 
