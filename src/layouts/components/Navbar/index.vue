@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import NavbarLeft from './components/NavbarLeft.vue'
-import NavbarRight from './components/NavbarRight.vue'
+import NavbarLeft from './components/navbar-left.vue'
+import NavbarRight from './components/navbar-right.vue'
 </script>
 
 <style scoped lang="scss">

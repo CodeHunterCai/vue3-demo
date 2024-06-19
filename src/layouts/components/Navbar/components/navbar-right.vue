@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { useFullscreen } from '@vueuse/core'
-import LanguageSelect from './LanguageSelect.vue'
+import LanguageSelect from './language-select.vue'
 import { GlobalStore } from '@/stores'
 
 const globalStore = GlobalStore()
@@ -44,7 +44,8 @@ function toggleFullscreen() {
 
 function logout() {
   globalStore.deleteUser()
-  // TODO 删除用户跳转登录
+  globalStore.logoutAsync()
+  globalStore.jumpToSsoLogin()
 }
 </script>
 

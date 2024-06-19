@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import Sidebar from './components/Sidebar/index.vue'
-import Navbar from './components/Navbar/index.vue'
-import AppMain from './components/AppMain/index.vue'
+import Sidebar from './components/sidebar/index.vue'
+import Navbar from './components/navbar/index.vue'
+import AppMain from './components/app-main/index.vue'
 </script>
 
 <style scoped lang="scss">

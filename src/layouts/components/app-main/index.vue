@@ -2,9 +2,7 @@
   <div class="app-main-container">
     <router-view>
       <template #default="{ Component, route }">
-        <keep-alive>
-          <component :is="Component" :key="route.path" />
-        </keep-alive>
+        <component :is="Component" :key="route.path" />
       </template>
     </router-view>
   </div>

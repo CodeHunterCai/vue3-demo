@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n'
-import languageList from './config'
+import { languageList } from './config'
 import pinia from '@/stores'
 import { GlobalStore } from '@/stores'
 
@@ -27,7 +27,5 @@ const i18n = createI18n({
   locale: globalStore.language || languageList[0].value,
   messages: i18nTranslateData
 })
-
-export { languageList }
 
 export default i18n

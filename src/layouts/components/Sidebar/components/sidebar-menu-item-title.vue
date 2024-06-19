@@ -2,7 +2,7 @@
   <el-icon size="14">
     <component v-if="icon" :is="icon" />
   </el-icon>
-  <span>{{ title && $t(title) }}</span>
+  <span class="title">{{ title && $t(title) }}</span>
 </template>
 
 <script setup lang="ts">
@@ -18,4 +18,8 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.title {
+  padding-right: 10px;
+}
+</style>

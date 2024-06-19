@@ -1,4 +1,13 @@
-import httpRequest from '@/api'
+import httpRequest from '@/api/http-request'
+const apiPrefix = import.meta.env.VITE_API_PREFIX
+
+export function getUserInfoApi(data: any) {
+  return httpRequest.get(`${apiPrefix}/auth/userInfo`, data)
+}
+
+export function logoutApi() {
+  return httpRequest.post(`${apiPrefix}/auth/logout`)
+}
 
 export function getMenuListApi() {
   return [

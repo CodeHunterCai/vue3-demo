@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { GlobalStore } from '@/stores'
-import { languageList } from '@/i18n'
+import { languageList } from '@/i18n/config'
 
 const globalStore = GlobalStore()
 const { locale } = useI18n()

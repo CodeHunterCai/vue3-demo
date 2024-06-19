@@ -14,7 +14,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
-import SidebarMenuItemTitle from './SidebarMenuItemTitle.vue'
+import SidebarMenuItemTitle from './sidebar-menu-item-title.vue'
 
 const props = defineProps({
   route: {

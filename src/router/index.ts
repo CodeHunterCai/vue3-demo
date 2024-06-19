@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import staticRoutes from './modules/StaticRoutes'
-import { axiosCanceler } from '@/api'
+import { staticRoutes } from './modules'
+import AxiosCanceler from '@/api/helper/axios-cancel'
 import { GlobalStore } from '@/stores'
-import { AuthStore } from '@/stores'
 
-const SsoLoginUrl = import.meta.env.VITE_SSO_LOGIN_URL
+const axiosCanceler = new AxiosCanceler()
 
 const routes = [...staticRoutes]
 
@@ -19,21 +18,7 @@ router.beforeEach(async (to, from, next) => {
 
   const globalStore = GlobalStore()
 
-  // 判断是否有Token，没有重定向到login
-  // if (!globalStore.token) {
-  //   window.location.href = SsoLoginUrl
-  //   return false
-  // }
-
-  // 如果没有菜单列表，就重新请求菜单列表并添加动态路由
-  const authStore = AuthStore()
-  authStore.generateAuthMenuList()
-  // if (!authStore.authMenuList.length) {
-  //   await authStore.generateAuthMenuList()
-  //   // await authStore.setAuthMenuList()
-  //   // await initDynamicRouter()
-  //   return next({ ...to, replace: true })
-  // }
+  // await globalStore.getUserInfoFromServerAsync()
 
   // 6.正常访问页面
   next()

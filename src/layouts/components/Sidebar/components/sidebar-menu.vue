@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
 import variables from '@/styles/variables.module.scss'
-import { routes } from '@/router/index'
-import SidebarMenuItem from './SidebarMenuItem.vue'
+import { routes } from '@/router'
+import SidebarMenuItem from './sidebar-menu-item.vue'
 </script>
 
 <style scoped>

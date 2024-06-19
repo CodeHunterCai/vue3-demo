@@ -2,16 +2,18 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { getMenuListApi } from '@/api'
 
-export const AuthStore = defineStore('AuthStore', () => {
+const AuthStore = defineStore('AuthStore', () => {
   const authMenuList = ref([])
 
-  async function generateAuthMenuList() {
+  async function generateAuthMenuListAsync() {
     const authMenuListFromServer = await getMenuListApi()
     console.log(authMenuListFromServer)
   }
 
   return {
     authMenuList,
-    generateAuthMenuList
+    generateAuthMenuListAsync
   }
 })
+
+export default AuthStore

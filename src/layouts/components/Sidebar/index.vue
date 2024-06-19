@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import SidebarLogo from './components/SidebarLogo.vue'
-import SidebarMenu from './components/SidebarMenu.vue'
+import SidebarLogo from './components/sidebar-logo.vue'
+import SidebarMenu from './components/sidebar-menu.vue'
 </script>
 
 <style scoped lang="scss">

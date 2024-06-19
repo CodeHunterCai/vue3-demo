@@ -1,5 +1,6 @@
+import moment from 'moment'
 import { notUndDefOrNull, isArray, isObject } from './is'
-import { languageList } from '@/i18n'
+import { languageList } from '@/i18n/config'
 
 /**
  * @description:  数据不为空
@@ -85,4 +86,28 @@ export function getBrowserLang() {
     defaultBrowserLang = languageList[1].value
   }
   return defaultBrowserLang
+}
+
+export function translateISOTimeToTimestamp(isoTime: string) {
+  if (!isoTime) {
+    return isoTime
+  }
+  return moment(isoTime)?.valueOf()
+}
+
+export function translateISOTimeToLocalTime(isoTime: string, placeholder: string, offset: string) {
+  if (!isoTime) {
+    return isoTime
+  }
+  const timestamp = translateISOTimeToTimestamp(isoTime)
+  if (!timestamp) {
+    return isoTime
+  }
+  if (!placeholder) {
+    return isoTime
+  }
+  if (!offset) {
+    return moment(timestamp).format(placeholder)
+  }
+  return moment(timestamp).utcOffset(offset).format(placeholder)
 }

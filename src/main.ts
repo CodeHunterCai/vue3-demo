@@ -15,7 +15,9 @@ import 'virtual:uno.css'
 
 // 本地SVG图标
 import 'virtual:svg-icons-register'
-import SvgIcon from '@/components/SvgIcon/index.vue'
+import SvgIcon from '@/components/svg-icon/index.vue'
+
+import { translateISOTimeToLocalTime } from '@/utils/util'
 
 const app = createApp(App)
 
@@ -29,5 +31,7 @@ app.use(pinia)
 app.use(i18n)
 app.use(ElementPlus)
 app.use(router)
+
+app.config.globalProperties.translateISOTimeToLocalTime = translateISOTimeToLocalTime
 
 app.mount('#app')

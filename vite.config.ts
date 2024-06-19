@@ -17,10 +17,11 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       host: '0.0.0.0',
+      port: 80,
       open: true,
       cors: true,
       proxy: {
-        '/api/safety/v1': {
+        [env.VITE_API_PREFIX]: {
           target: env.VITE_PROXY_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
