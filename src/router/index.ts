@@ -16,6 +16,10 @@ router.beforeEach(async (to, from, next) => {
   // 在跳转路由之前，清除所有的请求
   axiosCanceler.removeAllPending()
 
+  if (to.path === '/404') {
+    return next()
+  }
+
   const globalStore = GlobalStore()
 
   // await globalStore.getUserInfoFromServerAsync()
