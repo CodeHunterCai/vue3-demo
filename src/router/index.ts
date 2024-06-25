@@ -20,8 +20,11 @@ router.beforeEach(async (to, from, next) => {
 
   // await globalStore.getUserInfoFromServerAsync()
 
-  // 6.正常访问页面
-  next()
+  if (to.matched.length === 0) {
+    return from.name ? next({ name: from.name }) : next('/404')
+  } else {
+    return next()
+  }
 })
 
 export { routes }
